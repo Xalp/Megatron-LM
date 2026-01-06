@@ -30,7 +30,7 @@ Use the provided helper script `preprocess_qwen3.sh` to tokenize your data.
 # Example:
 chmod +x examples/qwen3/06btest/preprocess_qwen3.sh
 ./examples/qwen3/06btest/preprocess_qwen3.sh \
-    /path/to/your/data.json \
+    /pfs/ziqijin/Megatron-LM/examples/qwen3/06btest/codeparrot_data.json \
     examples/qwen3/06btest/data/my_qwen_data \
     Qwen/Qwen3-0.6B
 ```

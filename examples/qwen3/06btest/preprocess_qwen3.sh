@@ -19,5 +19,4 @@ python tools/preprocess_data.py \
        --tokenizer-type HuggingFaceTokenizer \
        --tokenizer-model "$TOKENIZER_MODEL" \
        --append-eod \
-       --workers 8 \
-       --chunk-size 25 # Low chunk size for smaller datasets, increase for large ones
+       --workers 64

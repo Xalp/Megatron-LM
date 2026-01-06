@@ -13,6 +13,10 @@ mkdir -p $(dirname "$OUTPUT_PREFIX")
 # Using HuggingFaceTokenizer which handles Qwen's BPE 
 # Ensure you have 'transformers>=4.32.0' (or appropriate version for Qwen) installed
 
+# We simply add --json-keys if the input data uses a specific key, but generally we expect 'text'
+# If you are using raw codeparrot data, use 'content'. 
+# But better to clean it first using create_sample_data.py to just have 'text'.
+
 python tools/preprocess_data.py \
        --input "$INPUT_DATA" \
        --output-prefix "$OUTPUT_PREFIX" \

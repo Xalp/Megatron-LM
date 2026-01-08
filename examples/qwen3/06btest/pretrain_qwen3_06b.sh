@@ -13,11 +13,13 @@ mkdir -p "$(dirname "$CHECKPOINT_PATH")"
 mkdir -p "$(dirname "$TENSORBOARD_LOGS_PATH")"
 
 # Distributed training setup
+# Distributed training setup
 GPUS_PER_NODE=8
-NUM_NODES=1
-MASTER_ADDR=${MASTER_ADDR:-localhost}
-MASTER_PORT=${MASTER_PORT:-6000}
-NODE_RANK=${NODE_RANK:-0}
+# Multi-node configuration using MLP environment variables
+NUM_NODES=${MLP_WORKER_NUM:-1}
+NODE_RANK=${MLP_ROLE_INDEX:-0}
+MASTER_ADDR=${MLP_WORKER_0_HOST:-localhost}
+MASTER_PORT=${MLP_WORKER_0_PORT:-6000}
 WORLD_SIZE=$(($GPUS_PER_NODE*$NUM_NODES))
 
 # Path to the pretrain_gpt.py script, assuming this script is run from the root of the Megatron-LM repository
